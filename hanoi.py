@@ -1,3 +1,8 @@
+'''
+Towers of Hanoi Solver
+Hayden Walker (www.haywalk.ca)
+2022-12-06
+'''
 
 def move(states, stacks, number, stack_from, stack_to):
     # base case: one item to move
@@ -24,8 +29,9 @@ def hanoi(size):
     move(states, stacks, size, 0, 1)
     return states
 
-size = int(input('stack size: '))
+if __name__ == '__main__':
+    size = int(input('stack size: '))
 
-for state in hanoi(size):
-    print(state)
+    for state in hanoi(size):
+        print(state)
 
