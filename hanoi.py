@@ -26,7 +26,7 @@ def hanoi(size):
     states = [[[j for j in stacks[i]] for i in range(3)]]
 
     # move the stack and return list of states
-    move(states, stacks, size, 0, 1)
+    move(states, stacks, size, 0, 2)
     return states
 
 if __name__ == '__main__':
