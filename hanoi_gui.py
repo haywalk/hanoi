@@ -17,11 +17,11 @@ class HanoiSolver:
         # OPTIONS
         self.title = 'Towers of Hanoi Solver by Hayden Walker'
         self.delay = 500
-        self.default_disks = 10
+        self.max_disks = 10
         self.canv_width = 500
         self.canv_height = 300
         self.disk_height = 20
-        self.disk_width_increment = 15
+        self.disk_width_increment = 14
         self.base_height = 50
         self.base_colour = '#cd853f'
         self.stack_width = 10
@@ -48,7 +48,7 @@ class HanoiSolver:
         # create entry field for number of disks
         self.enternum = Entry(self.toolbar, width = 7)
         self.enternum.pack(side = LEFT)
-        self.enternum.insert(0, str(self.default_disks))
+        self.enternum.insert(0, str(self.max_disks))
 
         # add buttons
         Button(self.toolbar, text = "Next Step", command = self.next_step).pack(side = RIGHT)
@@ -59,7 +59,7 @@ class HanoiSolver:
 
         # Nothing has been generated yet
         self.state = 0
-        self.num_disks = self.default_disks
+        self.num_disks = self.max_disks
         self.states = []
         self.auto_running = True
 
@@ -72,9 +72,9 @@ class HanoiSolver:
         '''
 
         try:
-            self.num_disks = int(self.enternum.get())
+            self.num_disks = min(int(self.enternum.get()), self.max_disks)
         except:
-            self.num_disks = self.default_disks
+            self.num_disks = self.max_disks
 
         self.state = 0
         self.states = hanoi(self.num_disks)
