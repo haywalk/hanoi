@@ -5,6 +5,7 @@ Hayden Walker (www.haywalk.ca)
 '''
 
 from tkinter import *
+import tkinter.messagebox as messagebox
 from hanoi import * # hanoi solver is in the other file
 
 class HanoiSolver:
@@ -15,7 +16,7 @@ class HanoiSolver:
         '''
 
         # OPTIONS
-        self.title = 'Towers of Hanoi Solver by Hayden Walker'
+        self.title = 'The Tower of Hanoi'
         self.delay = 500
         self.max_disks = 10
         self.canv_width = 500
@@ -27,7 +28,7 @@ class HanoiSolver:
         self.stack_width = 10
         self.stack_height = 200
         self.space_between = 100
-        self.colours = ['red', 'green', 'blue', 'yellow']
+        self.colours = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
 
         # create window
         master.resizable(False, False)
@@ -51,6 +52,7 @@ class HanoiSolver:
         self.enternum.insert(0, str(self.max_disks))
 
         # add buttons
+        Button(self.toolbar, text = "About", command = self.about).pack(side = RIGHT)
         Button(self.toolbar, text = "Next Step", command = self.next_step).pack(side = RIGHT)
         Button(self.toolbar, text = "Previous Step", command = self.prev_step).pack(side = RIGHT)
         Button(self.toolbar, text = 'Stop', command = self.stop).pack(side = RIGHT)
@@ -214,6 +216,8 @@ class HanoiSolver:
         '''
         self.auto_running = False
 
+    def about(self):
+        messagebox.showinfo("About", "Tower of Hanoi Solver\nHayden Walker, December 2022\ngithub.com/haywalk/hanoi")
 
 # start the program
 root = Tk()
